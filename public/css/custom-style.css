@@ -93,10 +93,10 @@ text-align: right;
     margin-left: 0 !important;
 }
 
-.navbar-toggler {
+/* .navbar-toggler {
     margin-left: auto;
     margin-right: 0;
-}
+} */
 
 .navbar-nav .nav-item {
     float: right;

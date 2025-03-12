@@ -50481,7 +50481,7 @@ var render = function () {
       return _c("div", { key: index, staticClass: "col-lg-2" }, [
         _c("div", { staticClass: "team-member" }, [
           _c("img", {
-            staticClass: "mx-auto rounded-circle",
+            staticClass: "mx-auto circle-image",
             attrs: { src: _vm.getImageUrl(member.photo), alt: "..." },
           }),
           _vm._v(" "),

@@ -148,26 +148,39 @@
     function toggleFieldsBasedOnGrade() {
         let selectedGrade = $('[name="grade_id"]').val();
 
-        // الحقول التي يجب إظهارها أو إخفاؤها
-        let fieldsToToggle = [
-            '[name="foulard"]',
-            '[name="junior_degree"]',
-            '[name="second_degree"]',
-            '[name="branchBadges[]"]',
-            '[name="hobbyBadges[]"]',
-            '[name="promoted"]',
-            '[name="member_type_id"]',
-            '[name="branch_id"]',
-            '[name="totem"]',
-            '[name="totem_name"]',
-            '[name="publicBadges[]"]'
-        ];
+        let fieldsToShow = [];
+        let fieldsToHide = [];
 
-        if (!selectedGrade || selectedGrade !== "10") {
-            hideFields(fieldsToToggle);
+        if (selectedGrade === "10") {
+            fieldsToShow = [
+                '[name="second_degree"]',
+                '[name="promoted"]',
+                '[name="totem"]',
+                '[name="totem_name"]',
+                '[name="publicBadges[]"]',
+                '[name="member_type_id"]',
+                '[name="branch_id"]',
+            ];
+            fieldsToHide = [
+                '[name="junior_degree"]',
+            ];
         } else {
-            showFields(fieldsToToggle);
+            fieldsToShow = [
+                '[name="junior_degree"]',
+            ];
+            fieldsToHide = [
+                '[name="second_degree"]',
+                '[name="promoted"]',
+                '[name="totem"]',
+                '[name="totem_name"]',
+                '[name="publicBadges[]"]',
+                '[name="member_type_id"]',
+                '[name="branch_id"]',
+            ];
         }
+
+        showFields(fieldsToShow);
+        hideFields(fieldsToHide);
     }
 
     // ----------------------------------------------------------------
@@ -176,7 +189,6 @@
             let $element = $(field);
             let $wrapper = $element.closest('.form-group');
 
-            // إعادة تعيين القيم بناءً على نوع الحقل
             if ($element.is(':checkbox')) {
                 $element.prop('checked', false).trigger('change');
             } else if ($element.is('select')) {
