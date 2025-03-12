@@ -93,7 +93,6 @@
 
         // الحقول التي سيتم تعطيلها أو تفعيلها
         let fieldsToToggle = [
-            '[name="branch_id"]',
             '[name="totem"]',
             '[name="totem_name"]',
             '[name="publicBadges[]"]'
@@ -159,7 +158,6 @@
                 '[name="totem_name"]',
                 '[name="publicBadges[]"]',
                 '[name="member_type_id"]',
-                '[name="branch_id"]',
             ];
             fieldsToHide = [
                 '[name="junior_degree"]',
@@ -175,7 +173,6 @@
                 '[name="totem_name"]',
                 '[name="publicBadges[]"]',
                 '[name="member_type_id"]',
-                '[name="branch_id"]',
             ];
         }
 
