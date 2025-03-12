@@ -159,13 +159,13 @@
                 '[name="publicBadges[]"]',
                 '[name="member_type_id"]',
             ];
-            fieldsToHide = [
-                '[name="junior_degree"]',
-            ];
+            // fieldsToHide = [
+            //     '[name="junior_degree"]',
+            // ];
         } else {
-            fieldsToShow = [
-                '[name="junior_degree"]',
-            ];
+            // fieldsToShow = [
+            //     '[name="junior_degree"]',
+            // ];
             fieldsToHide = [
                 '[name="second_degree"]',
                 '[name="promoted"]',
