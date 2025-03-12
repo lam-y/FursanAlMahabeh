@@ -21,6 +21,9 @@ class ContactUsController extends Controller
                 'name' => $request->name,
                 'phone' => $request->phone,
                 'email' => $request->email,
+                'birthdate' => $request->birthdate,
+                'school' => $request->school,
+                'grade_id' => $request->grade,
                 'message' => $request->message,
             ]);
 

@@ -28,6 +28,8 @@ class MessageRequest extends FormRequest
             'name' => 'required',
             'phone' => 'required|numeric|regex:/^((09)[0-9\s\-\+\(\)]*)$/|digits:10',
             'email' => 'required|email',
+            'birthdate' => 'required',
+            'grade' => 'required',
             'message' => 'required',
         ];
     }
@@ -41,6 +43,8 @@ class MessageRequest extends FormRequest
             'phone.regex' => 'أدخل رقم الموبايل بشكل صحيح',
             'email.required' => 'الايميل مطلوب',
             'email.email' => 'أدخل الايميل بالشكل الصحيح',
+            'birthdate.required' => 'حدد تاريخ الميلاد',
+            'grade.required' => 'الصف الدراسي مطلوب',
             'message.required' => 'لم تقم بإدخال الرسالة',
         ];
     }

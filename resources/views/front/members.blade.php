@@ -10,7 +10,7 @@
             <a href="{{ route('members.index') }}" class="btn btn-primary btn-xl text-uppercase">عرض المزيد</a>
         </div>
         <div class="row mt-1 mb-1">
-            <div class="col-lg-8 mx-auto text-center"><p class="large text-muted text-center fs-5 fw-bold">للإنضمام إلى فرسان المحبة، رجاءً راسلنا عبر النموذج في الأسفل (تواصل معنا)</p></div>
+            <div class="col-lg-8 mx-auto text-center"><p class="large text-muted text-center fs-5 fw-bold">للإنضمام إلى فرقة فرسان المحبة، رجاءً راسلنا عبر النموذج في الأسفل (تواصل معنا)</p></div>
         </div>
     </div>
 </section>

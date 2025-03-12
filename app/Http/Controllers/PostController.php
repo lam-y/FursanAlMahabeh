@@ -9,7 +9,7 @@ class PostController extends Controller
 {
     public function index()
     {
-        $posts = Post::latest()->with('images')->paginate(12);
+        $posts = Post::with('images')->paginate(12);
 
         return view('front.all-activities', compact('posts'));
     }

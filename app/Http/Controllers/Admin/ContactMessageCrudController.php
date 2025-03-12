@@ -64,6 +64,21 @@ class ContactMessageCrudController extends CrudController
                 'label' => 'رقم الموبايل'
             ],
             [
+                'name' => 'birth_date',
+                'label' => 'تاريخ الميلاد'
+            ],
+            [
+                'name' => 'school',
+                'label' => 'المدرسة'
+            ],
+            [
+                'name' => 'grade_id',
+                'label' => 'الصف',
+                'entity' => 'grade',
+                'model' => "App\Models\Grade",
+                'attribute' => "name",
+            ],
+            [
                 'name' => 'message',
                 'label' => 'الرسالة'
             ],

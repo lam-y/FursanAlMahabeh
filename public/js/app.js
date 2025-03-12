@@ -2120,15 +2120,38 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  props: ['grades'],
   data: function data() {
     return {
       formData: {
         name: '',
         phone: '',
         email: '',
+        birthdate: '',
+        school: '',
+        grade: '',
         message: ''
       },
       errors: [],
@@ -2153,6 +2176,9 @@ __webpack_require__.r(__webpack_exports__);
             name: "",
             phone: "",
             email: "",
+            birthdate: "",
+            school: "",
+            grade: "",
             message: ""
           };
         } else {
@@ -46231,7 +46257,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.invalid-feedback {\n    display: block !important;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.invalid-feedback {\n    display: block !important;\n}\noption:disabled {\n    color: #ced4da !important;\n}\n.date-placeholder {\n    position: absolute;\n    left: 10px;\n    top: 50%;\n    transform: translateY(-50%);\n    color: #ced4da;\n    pointer-events: none; /* لمنع التفاعل مع العنصر */\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -50273,7 +50299,7 @@ var render = function () {
   return _c(
     "form",
     {
-      attrs: { id: "contactForm" },
+      attrs: { id: "contactForm", dir: "rtl" },
       on: {
         submit: function ($event) {
           $event.preventDefault()
@@ -50282,143 +50308,254 @@ var render = function () {
       },
     },
     [
-      _c(
-        "div",
-        { staticClass: "row align-items-stretch mb-5", attrs: { dir: "rtl" } },
-        [
-          _c("div", { staticClass: "col-md-6" }, [
-            _c("div", { staticClass: "form-group" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.formData.name,
-                    expression: "formData.name",
-                  },
-                ],
-                staticClass: "form-control",
-                attrs: { id: "name", type: "text", placeholder: "الاسم *" },
-                domProps: { value: _vm.formData.name },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.formData, "name", $event.target.value)
-                  },
+      _c("div", { staticClass: "row align-items-stretch mb-5" }, [
+        _c("div", { staticClass: "col-md-6" }, [
+          _c("div", { staticClass: "form-group" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.formData.name,
+                  expression: "formData.name",
                 },
-              }),
-              _vm._v(" "),
-              _vm.errors.name
-                ? _c("div", { staticClass: "invalid-feedback" }, [
-                    _vm._v(_vm._s(_vm.errors.name[0])),
-                  ])
-                : _vm._e(),
-            ]),
+              ],
+              staticClass: "form-control",
+              attrs: { id: "name", type: "text", placeholder: "الاسم *" },
+              domProps: { value: _vm.formData.name },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.formData, "name", $event.target.value)
+                },
+              },
+            }),
             _vm._v(" "),
-            _c("div", { staticClass: "form-group" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.formData.email,
-                    expression: "formData.email",
-                  },
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  id: "email",
-                  type: "email",
-                  placeholder: "البريد الالكتروني *",
-                },
-                domProps: { value: _vm.formData.email },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.formData, "email", $event.target.value)
-                  },
-                },
-              }),
-              _vm._v(" "),
-              _vm.errors.email
-                ? _c("div", { staticClass: "invalid-feedback" }, [
-                    _vm._v(_vm._s(_vm.errors.email[0])),
-                  ])
-                : _vm._e(),
-            ]),
-            _vm._v(" "),
-            _c("div", { staticClass: "form-group mb-md-0" }, [
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.formData.phone,
-                    expression: "formData.phone",
-                  },
-                ],
-                staticClass: "form-control",
-                attrs: { id: "phone", type: "tel", placeholder: "موبايل *" },
-                domProps: { value: _vm.formData.phone },
-                on: {
-                  input: function ($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.formData, "phone", $event.target.value)
-                  },
-                },
-              }),
-              _vm._v(" "),
-              _vm.errors.phone
-                ? _c("div", { staticClass: "invalid-feedback" }, [
-                    _vm._v(_vm._s(_vm.errors.phone[0])),
-                  ])
-                : _vm._e(),
-            ]),
+            _vm.errors.name
+              ? _c("div", { staticClass: "invalid-feedback" }, [
+                  _vm._v(_vm._s(_vm.errors.name[0])),
+                ])
+              : _vm._e(),
           ]),
           _vm._v(" "),
-          _c("div", { staticClass: "col-md-6" }, [
-            _c(
-              "div",
-              { staticClass: "form-group form-group-textarea mb-md-0" },
-              [
-                _c("textarea", {
-                  directives: [
-                    {
-                      name: "model",
-                      rawName: "v-model",
-                      value: _vm.formData.message,
-                      expression: "formData.message",
-                    },
-                  ],
-                  staticClass: "form-control",
-                  attrs: { id: "message", placeholder: "اكتب هنا.. *" },
-                  domProps: { value: _vm.formData.message },
-                  on: {
-                    input: function ($event) {
-                      if ($event.target.composing) {
-                        return
-                      }
-                      _vm.$set(_vm.formData, "message", $event.target.value)
-                    },
-                  },
-                }),
-                _vm._v(" "),
-                _vm.errors.message
-                  ? _c("div", { staticClass: "invalid-feedback" }, [
-                      _vm._v(_vm._s(_vm.errors.message[0])),
-                    ])
-                  : _vm._e(),
-              ]
-            ),
+          _c("div", { staticClass: "form-group" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.formData.email,
+                  expression: "formData.email",
+                },
+              ],
+              staticClass: "form-control",
+              attrs: {
+                id: "email",
+                type: "email",
+                placeholder: "البريد الالكتروني *",
+              },
+              domProps: { value: _vm.formData.email },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.formData, "email", $event.target.value)
+                },
+              },
+            }),
+            _vm._v(" "),
+            _vm.errors.email
+              ? _c("div", { staticClass: "invalid-feedback" }, [
+                  _vm._v(_vm._s(_vm.errors.email[0])),
+                ])
+              : _vm._e(),
           ]),
-        ]
-      ),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group mb-md-0" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.formData.phone,
+                  expression: "formData.phone",
+                },
+              ],
+              staticClass: "form-control",
+              attrs: { id: "phone", type: "tel", placeholder: "موبايل *" },
+              domProps: { value: _vm.formData.phone },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.formData, "phone", $event.target.value)
+                },
+              },
+            }),
+            _vm._v(" "),
+            _vm.errors.phone
+              ? _c("div", { staticClass: "invalid-feedback" }, [
+                  _vm._v(_vm._s(_vm.errors.phone[0])),
+                ])
+              : _vm._e(),
+          ]),
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-md-6" }, [
+          _c("div", { staticClass: "form-group position-relative" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.formData.birthdate,
+                  expression: "formData.birthdate",
+                },
+              ],
+              staticClass: "form-control",
+              attrs: { id: "birthdate", type: "date" },
+              domProps: { value: _vm.formData.birthdate },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.formData, "birthdate", $event.target.value)
+                },
+              },
+            }),
+            _vm._v(" "),
+            !_vm.formData.birthdate
+              ? _c("span", { staticClass: "date-placeholder" }, [
+                  _vm._v("تاريخ الميلاد *"),
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.errors.birthdate
+              ? _c("div", { staticClass: "invalid-feedback" }, [
+                  _vm._v(_vm._s(_vm.errors.birthdate[0])),
+                ])
+              : _vm._e(),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group" }, [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.formData.school,
+                  expression: "formData.school",
+                },
+              ],
+              staticClass: "form-control",
+              attrs: { id: "school", type: "text", placeholder: "المدرسة" },
+              domProps: { value: _vm.formData.school },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.formData, "school", $event.target.value)
+                },
+              },
+            }),
+          ]),
+          _vm._v(" "),
+          _c("div", { staticClass: "form-group mb-md-0" }, [
+            _c(
+              "select",
+              {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.formData.grade,
+                    expression: "formData.grade",
+                  },
+                ],
+                staticClass: "form-control",
+                attrs: { id: "grade" },
+                on: {
+                  change: function ($event) {
+                    var $$selectedVal = Array.prototype.filter
+                      .call($event.target.options, function (o) {
+                        return o.selected
+                      })
+                      .map(function (o) {
+                        var val = "_value" in o ? o._value : o.value
+                        return val
+                      })
+                    _vm.$set(
+                      _vm.formData,
+                      "grade",
+                      $event.target.multiple ? $$selectedVal : $$selectedVal[0]
+                    )
+                  },
+                },
+              },
+              [
+                _c("option", { attrs: { value: "", disabled: "" } }, [
+                  _vm._v("الصف *"),
+                ]),
+                _vm._v(" "),
+                _vm._l(_vm.grades, function (grade) {
+                  return _c(
+                    "option",
+                    { key: grade.id, domProps: { value: grade.id } },
+                    [_vm._v(_vm._s(grade.name))]
+                  )
+                }),
+              ],
+              2
+            ),
+            _vm._v(" "),
+            _vm.errors.grade
+              ? _c("div", { staticClass: "invalid-feedback" }, [
+                  _vm._v(_vm._s(_vm.errors.grade[0])),
+                ])
+              : _vm._e(),
+          ]),
+        ]),
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-md-12" }, [
+          _c("div", { staticClass: "form-group form-group-textarea mb-md-0" }, [
+            _c("textarea", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.formData.message,
+                  expression: "formData.message",
+                },
+              ],
+              staticClass: "form-control",
+              attrs: { id: "message", placeholder: "اكتب هنا.. *" },
+              domProps: { value: _vm.formData.message },
+              on: {
+                input: function ($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.$set(_vm.formData, "message", $event.target.value)
+                },
+              },
+            }),
+            _vm._v(" "),
+            _vm.errors.message
+              ? _c("div", { staticClass: "invalid-feedback" }, [
+                  _vm._v(_vm._s(_vm.errors.message[0])),
+                ])
+              : _vm._e(),
+          ]),
+        ]),
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "text-center text-white mb-3" }, [
         _vm.successMsg

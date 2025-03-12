@@ -13,7 +13,7 @@ class MemberController extends Controller
     {
         $members = Member::select('members.name', 'members.photo', 'member_types.name as member_type_name')
                             ->join('member_types', 'members.member_type_id', '=', 'member_types.id')
-                            ->orderBy('members.created_at', 'desc')
+                            // ->orderBy('members.created_at', 'desc')
                             ->paginate(48);
 
         return view('front.all-members', compact('members'));

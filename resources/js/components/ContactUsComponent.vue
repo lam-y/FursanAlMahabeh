@@ -1,6 +1,6 @@
 <template>
-  <form @submit.prevent="submitForm" id="contactForm">
-        <div class="row align-items-stretch mb-5" dir="rtl">
+  <form @submit.prevent="submitForm" id="contactForm" dir="rtl">
+        <div class="row align-items-stretch mb-5">
             <div class="col-md-6">
                 <div class="form-group">
                     <input class="form-control" id="name" type="text" v-model="formData.name" placeholder="الاسم *"/>
@@ -18,6 +18,25 @@
                 </div>
             </div>
             <div class="col-md-6">
+                <div class="form-group position-relative">
+                    <input class="form-control" id="birthdate" type="date" v-model="formData.birthdate"/>
+                    <span class="date-placeholder" v-if="!formData.birthdate">تاريخ الميلاد *</span>
+                    <div v-if="errors.birthdate" class="invalid-feedback">{{ errors.birthdate[0] }}</div>
+                </div>
+                <div class="form-group">
+                    <input class="form-control" id="school" type="text" v-model="formData.school" placeholder="المدرسة" />
+                </div>
+                <div class="form-group mb-md-0">
+                    <select class="form-control" id="grade" v-model="formData.grade">
+                        <option value="" disabled>الصف *</option>
+                        <option v-for="grade in grades" :key="grade.id" :value="grade.id">{{ grade.name }}</option>
+                    </select>
+                    <div v-if="errors.grade" class="invalid-feedback">{{ errors.grade[0] }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
                 <div class="form-group form-group-textarea mb-md-0">
                     <!-- Message input-->
                     <textarea class="form-control" id="message" v-model="formData.message" placeholder="اكتب هنا.. *"></textarea>
@@ -44,6 +63,7 @@
 import axios from "axios";
 
 export default {
+    props: ['grades'],
 
     data(){
         return{
@@ -51,6 +71,9 @@ export default {
                 name: '',
                 phone: '',
                 email: '',
+                birthdate: '',
+                school: '',
+                grade: '',
                 message: '',
             },
             errors: [],
@@ -74,7 +97,8 @@ export default {
                     if (response.data.success) {
                         this.errors = [];
                         this.successMsg = response.data.message;
-                        this.formData = { name: "", phone: "", email: "", message: "" };
+                        this.formData = { name: "", phone: "", email: "",
+                                          birthdate: "", school: "", grade: "",  message: "" };
                     } else {
                         this.errors = response.data.errors;
                     }
@@ -90,5 +114,16 @@ export default {
 <style>
 .invalid-feedback {
     display: block !important;
+}
+option:disabled {
+    color: #ced4da !important;
+}
+.date-placeholder {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ced4da;
+    pointer-events: none; /* لمنع التفاعل مع العنصر */
 }
 </style>

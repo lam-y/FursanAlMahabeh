@@ -17,4 +17,9 @@ class Grade extends Model
     {
         return $this->hasMany(Member::class);
     }
+
+    public function contactMessages()
+    {
+        return $this->hasMany(ContactMessage::class);
+    }
 }
