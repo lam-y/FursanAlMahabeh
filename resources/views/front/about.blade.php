@@ -6,7 +6,7 @@
         </div>
         <ul class="timeline">
             <li>
-                <div class="timeline-image"><img class="rounded-circle img-fluid" src="{{asset('img/about/1.jpg')}}" alt="..." /></div>
+                <div class="timeline-image"><img class="rounded-circle img-fluid" src="{{asset('img/about/1.JPG')}}" alt="..." /></div>
                 <div class="timeline-panel">
                     <div class="timeline-heading">
                         <h4>1977-1978</h4>
@@ -16,7 +16,7 @@
                 </div>
             </li>
             <li class="timeline-inverted">
-                <div class="timeline-image"><img class="rounded-circle img-fluid" src="{{asset('img/about/2.jpg')}}" alt="..." /></div>
+                <div class="timeline-image"><img class="rounded-circle img-fluid" src="{{asset('img/about/2.JPG')}}" alt="..." /></div>
                 <div class="timeline-panel">
                     <div class="timeline-heading">
                         <h4>صيف عام 1978</h4>
@@ -26,7 +26,7 @@
                 </div>
             </li>
             <li>
-                <div class="timeline-image"><img class="rounded-circle img-fluid" src="{{asset('img/about/3.jpg')}}" alt="..." /></div>
+                <div class="timeline-image"><img class="rounded-circle img-fluid" src="{{asset('img/about/3.JPG')}}" alt="..." /></div>
                 <div class="timeline-panel">
                     <div class="timeline-heading">
                         <h4>1980-1981</h4>
@@ -36,16 +36,16 @@
                 </div>
             </li>
             <li class="timeline-inverted">
-                <div class="timeline-image"><img class="rounded-circle img-fluid" src="{{asset('img/about/4.jpg')}}" alt="..." /></div>
+                <div class="timeline-image"><img class="rounded-circle img-fluid" src="{{asset('img/about/4.JPG')}}" alt="..." /></div>
                 <div class="timeline-panel">
                     <div class="timeline-heading">
                         <h4>حتى اليوم</h4>
                         {{-- <h4 class="subheading">Phase Two Expansion</h4> --}}
                     </div>
-                    <div class="timeline-body"><p class="text-muted">مُنْذُ بِدَايَات الْفُرْقَة وَحَتَّى يَوْمِنَا هَذَا، بَقِيَ تَوَجُّهِهَا وَاضِحًا فِي بِنَاءِ إنْسَانٍ مُؤْمِن وَمَوَاطِن صَالِحٍ يَقُومُ بِرِسَالَتِه تُجَاه الْكَنِيسَة وَالْوَطَن الْإِنْسَان. و تَفْتَخِر فُرْقَة "فَرَسَان الْمَحَبَّة" بِأَنَّهَا وَعَلَى الرَّغْمِ مِنْ كُلِّ الصُّعُوبَات الَّتِي وَاجِهَتِهَا بَقِيَتْ أَمِينِه لِلأسس وَالمَبَادِئِ وَاَلَّتِي سَعَتْ وَتَسْعَى لِتَحْقِيقِهَا 
+                    <div class="timeline-body"><p class="text-muted">مُنْذُ بِدَايَات الْفُرْقَة وَحَتَّى يَوْمِنَا هَذَا، بَقِيَ تَوَجُّهِهَا وَاضِحًا فِي بِنَاءِ إنْسَانٍ مُؤْمِن وَمَوَاطِن صَالِحٍ يَقُومُ بِرِسَالَتِه تُجَاه الْكَنِيسَة وَالْوَطَن الْإِنْسَان. و تَفْتَخِر فُرْقَة "فَرَسَان الْمَحَبَّة" بِأَنَّهَا وَعَلَى الرَّغْمِ مِنْ كُلِّ الصُّعُوبَات الَّتِي وَاجِهَتِهَا بَقِيَتْ أَمِينِه لِلأسس وَالمَبَادِئِ وَاَلَّتِي سَعَتْ وَتَسْعَى لِتَحْقِيقِهَا
                         كَذَلِكَ تَتَمَيَّز فُرْقَة "فَرَسَان الْمَحَبَّة"، بِرَوَابِط قَوِيَّة تَجْمَع كَافَّة أَعْضَائِهَا مِنْ مُخْتَلَفِ الأَجْيَال..
                     <br>
-                    عَلَى الرَّغْمِ مِنْ اعْتِزَاز وَتَشَبَّث الْفُرْقَة بِنِظَامِهَا و تَقَالِيدِهَا وَ تَارِيخِهَا، فَإِنَّهَا تُحَاوِل دَائِمًا أَنْ تُقَدَّمَ مَا يُسَاهِمُ فِي بِنَاءِ أَعْضَائِهَا وَمَنْ حَوْلَهُمْ مَهْمَا تَغَيَّرَتْ الظُّرُوف و الأَجْيَال ... 
+                    عَلَى الرَّغْمِ مِنْ اعْتِزَاز وَتَشَبَّث الْفُرْقَة بِنِظَامِهَا و تَقَالِيدِهَا وَ تَارِيخِهَا، فَإِنَّهَا تُحَاوِل دَائِمًا أَنْ تُقَدَّمَ مَا يُسَاهِمُ فِي بِنَاءِ أَعْضَائِهَا وَمَنْ حَوْلَهُمْ مَهْمَا تَغَيَّرَتْ الظُّرُوف و الأَجْيَال ...
                     <br>
                     وَتَبْقَى "فَرَسَان الْمَحَبَّة".
                     </p></div>
@@ -56,7 +56,7 @@
                     <h4>
                         يسعدنا أن تكون
                         <br />
-                        عضواً في 
+                        عضواً في
                         <br />
                         فريقنا
                     </h4>
