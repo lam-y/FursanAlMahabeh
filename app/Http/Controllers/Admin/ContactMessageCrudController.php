@@ -29,9 +29,6 @@ class ContactMessageCrudController extends CrudController
 
     protected function setupListOperation()
     {
-        // TODO: remove setFromDb() and manually define Columns, maybe Filters
-        // $this->crud->setFromDb();
-
         CRUD::setColumns([
             [
                 'name' => 'name',
@@ -59,6 +56,11 @@ class ContactMessageCrudController extends CrudController
                 'entity' => 'grade',
                 'model' => "App\Models\Grade",
                 'attribute' => "name",
+                'searchLogic' => function ($query, $column, $searchTerm) {
+                    $query->orWhereHas('grade', function ($q) use ($searchTerm) {
+                        $q->where('name', 'LIKE', "%$searchTerm%");
+                    });
+                },
             ],
         ]);
     }

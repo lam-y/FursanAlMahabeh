@@ -63,11 +63,21 @@ class MemberCrudController extends CrudController
                 'label' => 'رقم الفارس'
             ],
             [
+                'name' => 'foulard_text',
+                'label' => 'مثبت (فولار)',
+                'searchable' => true,
+            ],
+            [
                 'name' => 'grade_id',
                 'label' => 'الصف',
                 'entity' => 'grade',
                 'model' => "App\Models\Grade",
                 'attribute' => "name",
+                'searchLogic' => function ($query, $column, $searchTerm) {
+                    $query->orWhereHas('grade', function ($q) use ($searchTerm) {
+                        $q->where('name', 'LIKE', "%$searchTerm%");
+                    });
+                },
             ],
             [
                 'name' => 'register_date',
@@ -79,6 +89,11 @@ class MemberCrudController extends CrudController
                 'entity' => 'memberType',
                 'model' => "App\Models\MemberType",
                 'attribute' => "name",
+                'searchLogic' => function ($query, $column, $searchTerm) {
+                    $query->orWhereHas('memberType', function ($q) use ($searchTerm) {
+                        $q->where('name', 'LIKE', "%$searchTerm%");
+                    });
+                },
             ],
             [
                 'name' => 'branch_id',
@@ -86,6 +101,11 @@ class MemberCrudController extends CrudController
                 'entity' => 'branch',
                 'model' => "App\Models\Branch",
                 'attribute' => "name",
+                'searchLogic' => function ($query, $column, $searchTerm) {
+                    $query->orWhereHas('branch', function ($q) use ($searchTerm) {
+                        $q->where('name', 'LIKE', "%$searchTerm%");
+                    });
+                },
             ],
 
         ]);
@@ -254,7 +274,6 @@ class MemberCrudController extends CrudController
         CRUD::field('foulard')->type('toggle')->label('(فولار)مثبت');
         CRUD::field('junior_degree')->type('toggle')->label('درجة مبتدئ');
         CRUD::field('second_degree')->type('toggle')->label('درجة ثانية');
-
         CRUD::addField([
             'label' => "أوسمة فرع",
             'type' => "select2_multiple",
@@ -274,7 +293,6 @@ class MemberCrudController extends CrudController
             'attribute' => "name",
             'pivot' => true,
         ]);
-
 
         //--------------------
         // Chief
@@ -395,5 +413,4 @@ class MemberCrudController extends CrudController
         $this->crud->delete($id);
         return redirect()->route('member.index');
     }
-
 }
