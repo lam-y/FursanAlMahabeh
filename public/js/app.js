@@ -2139,6 +2139,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -46257,7 +46258,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.invalid-feedback {\n    display: block !important;\n}\noption:disabled {\n    color: #ced4da !important;\n}\n.date-placeholder {\n    position: absolute;\n    left: 10px;\n    top: 50%;\n    transform: translateY(-50%);\n    color: #ced4da;\n    pointer-events: none; /* لمنع التفاعل مع العنصر */\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.invalid-feedback {\n    display: block !important;\n}\n.date-placeholder {\n    position: absolute;\n    right: 40px;\n    top: 50%;\n    transform: translateY(-50%);\n    color: #ced4da;\n    font-size: 1rem;\n    font-weight: 400;\n    pointer-events: none;\n}\n.cus-select{\n    padding: 20px !important;\n}\noption:disabled {\n    color: #ced4da !important; /* لون رمادي للخيار المعطل */\n}\nselect {\n    color: #000 !important; /* اللون الأسود الافتراضي عند اختيار أي خيار */\n}\n.date-placeholder {\n  position: absolute;\n  right: 40px;\n  top: 50%;\n  transform: translateY(-50%);\n  color: #ced4da;\n  font-size: 1rem;\n  font-weight: 400;\n  pointer-events: none;\n}\n\n/* تغيير لون النص الافتراضي `MM/DD/YYYY` إلى الرمادي في جميع المتصفحات */\n.date-input::-webkit-datetime-edit {\n  color: #ced4da !important;\n}\n.date-input::-moz-placeholder {\n  color: #ced4da !important;\n}\n.date-input:-ms-input-placeholder {\n  color: #ced4da !important;\n}\n.date-input::-ms-input-placeholder {\n  color: #ced4da !important;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -50416,7 +50417,7 @@ var render = function () {
                   expression: "formData.birthdate",
                 },
               ],
-              staticClass: "form-control",
+              staticClass: "form-control date-input",
               attrs: { id: "birthdate", type: "date" },
               domProps: { value: _vm.formData.birthdate },
               on: {
@@ -50478,7 +50479,13 @@ var render = function () {
                     expression: "formData.grade",
                   },
                 ],
-                staticClass: "form-control",
+                staticClass: "form-control cus-select",
+                style: {
+                  color:
+                    _vm.formData.grade == "0" || _vm.formData.grade === ""
+                      ? "#ced4da !important"
+                      : "#000",
+                },
                 attrs: { id: "grade" },
                 on: {
                   change: function ($event) {
@@ -50499,9 +50506,11 @@ var render = function () {
                 },
               },
               [
-                _c("option", { attrs: { value: "", disabled: "" } }, [
-                  _vm._v("الصف *"),
-                ]),
+                _c(
+                  "option",
+                  { attrs: { value: "0", disabled: "", selected: "" } },
+                  [_vm._v("الصف *")]
+                ),
                 _vm._v(" "),
                 _vm._l(_vm.grades, function (grade) {
                   return _c(
@@ -50513,12 +50522,6 @@ var render = function () {
               ],
               2
             ),
-            _vm._v(" "),
-            _vm.errors.grade
-              ? _c("div", { staticClass: "invalid-feedback" }, [
-                  _vm._v(_vm._s(_vm.errors.grade[0])),
-                ])
-              : _vm._e(),
           ]),
         ]),
       ]),

@@ -30,7 +30,37 @@ class ContactMessageCrudController extends CrudController
     protected function setupListOperation()
     {
         // TODO: remove setFromDb() and manually define Columns, maybe Filters
-        $this->crud->setFromDb();
+        // $this->crud->setFromDb();
+
+        CRUD::setColumns([
+            [
+                'name' => 'name',
+                'label' => 'الاسم'
+            ],
+            [
+                'name' => 'email',
+                'label' => 'الايميل'
+            ],
+            [
+                'name' => 'phone',
+                'label' => 'رقم الموبايل'
+            ],
+            [
+                'name' => 'birthdate',
+                'label' => 'تاريخ الميلاد'
+            ],
+            [
+                'name' => 'school',
+                'label' => 'المدرسة'
+            ],
+            [
+                'name' => 'grade_id',
+                'label' => 'الصف',
+                'entity' => 'grade',
+                'model' => "App\Models\Grade",
+                'attribute' => "name",
+            ],
+        ]);
     }
 
     protected function setupCreateOperation()
@@ -45,6 +75,7 @@ class ContactMessageCrudController extends CrudController
     {
         $this->setupCreateOperation();
     }
+
 
     protected function setupShowOperation()
     {
@@ -64,7 +95,7 @@ class ContactMessageCrudController extends CrudController
                 'label' => 'رقم الموبايل'
             ],
             [
-                'name' => 'birth_date',
+                'name' => 'birthdate',
                 'label' => 'تاريخ الميلاد'
             ],
             [

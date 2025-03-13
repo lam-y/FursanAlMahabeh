@@ -19,19 +19,20 @@
             </div>
             <div class="col-md-6">
                 <div class="form-group position-relative">
-                    <input class="form-control" id="birthdate" type="date" v-model="formData.birthdate"/>
+                    <input class="form-control date-input" id="birthdate" type="date" v-model="formData.birthdate"/>
                     <span class="date-placeholder" v-if="!formData.birthdate">تاريخ الميلاد *</span>
                     <div v-if="errors.birthdate" class="invalid-feedback">{{ errors.birthdate[0] }}</div>
                 </div>
+
                 <div class="form-group">
                     <input class="form-control" id="school" type="text" v-model="formData.school" placeholder="المدرسة" />
                 </div>
                 <div class="form-group mb-md-0">
-                    <select class="form-control" id="grade" v-model="formData.grade">
-                        <option value="" disabled>الصف *</option>
+                    <select class="form-control cus-select" id="grade" v-model="formData.grade"
+                            :style="{ color: formData.grade == '0' || formData.grade === '' ? '#ced4da !important' : '#000' }">
+                        <option value="0" disabled selected>الصف *</option>
                         <option v-for="grade in grades" :key="grade.id" :value="grade.id">{{ grade.name }}</option>
                     </select>
-                    <div v-if="errors.grade" class="invalid-feedback">{{ errors.grade[0] }}</div>
                 </div>
             </div>
         </div>
@@ -115,15 +116,52 @@ export default {
 .invalid-feedback {
     display: block !important;
 }
-option:disabled {
-    color: #ced4da !important;
-}
 .date-placeholder {
     position: absolute;
-    left: 10px;
+    right: 40px;
     top: 50%;
     transform: translateY(-50%);
     color: #ced4da;
-    pointer-events: none; /* لمنع التفاعل مع العنصر */
+    font-size: 1rem;
+    font-weight: 400;
+    pointer-events: none;
+}
+.cus-select{
+    padding: 20px !important;
+}
+option:disabled {
+    color: #ced4da !important; /* لون رمادي للخيار المعطل */
+}
+
+select {
+    color: #000 !important; /* اللون الأسود الافتراضي عند اختيار أي خيار */
+}
+
+.date-placeholder {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ced4da;
+  font-size: 1rem;
+  font-weight: 400;
+  pointer-events: none;
+}
+
+/* تغيير لون النص الافتراضي `MM/DD/YYYY` إلى الرمادي في جميع المتصفحات */
+.date-input::-webkit-datetime-edit {
+  color: #ced4da !important;
+}
+
+.date-input::-moz-placeholder {
+  color: #ced4da !important;
+}
+
+.date-input:-ms-input-placeholder {
+  color: #ced4da !important;
+}
+
+.date-input::-ms-input-placeholder {
+  color: #ced4da !important;
 }
 </style>
