@@ -1,7 +1,7 @@
 <section class="page-section bg-light" id="members">
     <div class="container">
         <div class="text-center">
-            <h2 class="section-heading text-uppercase">أعضاء الفريق</h2>
+            <h2 class="section-heading text-uppercase">أعضاء الفرقة</h2>
         </div>
         <div>
             <member-list :members="{{ json_encode($members) }}"></member-list>

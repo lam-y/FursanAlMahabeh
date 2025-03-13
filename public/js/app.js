@@ -2138,8 +2138,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
 
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
@@ -46258,7 +46256,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.invalid-feedback {\n    display: block !important;\n}\n.date-placeholder {\n    position: absolute;\n    right: 40px;\n    top: 50%;\n    transform: translateY(-50%);\n    color: #ced4da;\n    font-size: 1rem;\n    font-weight: 400;\n    pointer-events: none;\n}\n.cus-select{\n    padding: 20px !important;\n}\noption:disabled {\n    color: #ced4da !important; /* لون رمادي للخيار المعطل */\n}\nselect {\n    color: #000 !important; /* اللون الأسود الافتراضي عند اختيار أي خيار */\n}\n.date-placeholder {\n  position: absolute;\n  right: 40px;\n  top: 50%;\n  transform: translateY(-50%);\n  color: #ced4da;\n  font-size: 1rem;\n  font-weight: 400;\n  pointer-events: none;\n}\n\n/* تغيير لون النص الافتراضي `MM/DD/YYYY` إلى الرمادي في جميع المتصفحات */\n.date-input::-webkit-datetime-edit {\n  color: #ced4da !important;\n}\n.date-input::-moz-placeholder {\n  color: #ced4da !important;\n}\n.date-input:-ms-input-placeholder {\n  color: #ced4da !important;\n}\n.date-input::-ms-input-placeholder {\n  color: #ced4da !important;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.invalid-feedback {\n    display: block !important;\n}\n.cus-select{\n    padding: 20px !important;\n}\n.date-placeholder {\n  position: absolute;\n  right: 40px;\n  top: 50%;\n  transform: translateY(-50%);\n  color: #ced4da;\n  font-size: 1rem;\n  font-weight: 400;\n  pointer-events: none;\n}\n.date-input::-webkit-calendar-picker-indicator {\n  opacity: 0.6;\n}\n.date-input {\n  -webkit-appearance: none;\n     -moz-appearance: none;\n          appearance: none;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -50418,6 +50416,7 @@ var render = function () {
                 },
               ],
               staticClass: "form-control date-input",
+              style: { color: _vm.formData.birthdate ? "#000" : "#ced4da" },
               attrs: { id: "birthdate", type: "date" },
               domProps: { value: _vm.formData.birthdate },
               on: {
@@ -50481,10 +50480,7 @@ var render = function () {
                 ],
                 staticClass: "form-control cus-select",
                 style: {
-                  color:
-                    _vm.formData.grade == "0" || _vm.formData.grade === ""
-                      ? "#ced4da !important"
-                      : "#000",
+                  color: _vm.formData.grade === "" ? "#ced4da" : "#000",
                 },
                 attrs: { id: "grade" },
                 on: {
@@ -50508,14 +50504,21 @@ var render = function () {
               [
                 _c(
                   "option",
-                  { attrs: { value: "0", disabled: "", selected: "" } },
+                  {
+                    style: { color: "#ced4da" },
+                    attrs: { value: "", disabled: "" },
+                  },
                   [_vm._v("الصف *")]
                 ),
                 _vm._v(" "),
                 _vm._l(_vm.grades, function (grade) {
                   return _c(
                     "option",
-                    { key: grade.id, domProps: { value: grade.id } },
+                    {
+                      key: grade.id,
+                      style: { color: "#000" },
+                      domProps: { value: grade.id },
+                    },
                     [_vm._v(_vm._s(grade.name))]
                   )
                 }),
