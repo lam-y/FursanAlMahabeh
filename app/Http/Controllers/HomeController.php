@@ -18,7 +18,7 @@ class HomeController extends Controller
                             ->orderBy('members.created_at', 'desc')
                             ->paginate(6);
 
-        $grades = Grade::select('id', 'name')->get();
+        $grades = Grade::select('id', 'name')->orderBy('id', 'asc')->get();
 
         return view('front.index', compact('posts', 'members', 'grades'));
     }
