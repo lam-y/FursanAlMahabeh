@@ -411,6 +411,6 @@ class MemberCrudController extends CrudController
 
         // استدعاء الدالة الأصلية للحذف من قاعدة البيانات
         $this->crud->delete($id);
-        return redirect()->route('member.index');
+        return response()->json(1);
     }
 }

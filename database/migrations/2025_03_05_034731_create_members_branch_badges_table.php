@@ -17,10 +17,10 @@ class CreateMembersBranchBadgesTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('member_id')->nullable();
-            $table->foreign('member_id')->references('id')->on('members');
+            $table->foreign('member_id')->references('id')->on('members')->onDelete('CASCADE');
 
             $table->unsignedBigInteger('branch_badges_id')->nullable();
-            $table->foreign('branch_badges_id')->references('id')->on('branch_badges');
+            $table->foreign('branch_badges_id')->references('id')->on('branch_badges')->onDelete('SET NULL');
 
             $table->timestamps();
         });

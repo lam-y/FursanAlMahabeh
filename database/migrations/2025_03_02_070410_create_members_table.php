@@ -34,16 +34,16 @@ class CreateMembersTable extends Migration
             $table->string('totem_name')->nullable();
 
             $table->unsignedBigInteger('branch_id')->nullable();
-            $table->foreign('branch_id')->references('id')->on('branches');
+            $table->foreign('branch_id')->references('id')->on('branches')->onDelete('SET NULL');
 
             $table->unsignedBigInteger('grade_id')->nullable();
-            $table->foreign('grade_id')->references('id')->on('grades');
+            $table->foreign('grade_id')->references('id')->on('grades')->onDelete('SET NULL');
 
             $table->unsignedBigInteger('member_type_id')->nullable();
-            $table->foreign('member_type_id')->references('id')->on('member_types');
+            $table->foreign('member_type_id')->references('id')->on('member_types')->onDelete('SET NULL');
 
             $table->unsignedBigInteger('branch_badge_id')->nullable();
-            $table->foreign('branch_badge_id')->references('id')->on('branch_badges');
+            $table->foreign('branch_badge_id')->references('id')->on('branch_badges')->onDelete('SET NULL');
 
             $table->timestamps();
         });

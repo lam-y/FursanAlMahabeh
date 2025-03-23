@@ -17,10 +17,10 @@ class CreateMembersPublicBadgesTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('member_id')->nullable();
-            $table->foreign('member_id')->references('id')->on('members');
+            $table->foreign('member_id')->references('id')->on('members')->onDelete('CASCADE');
 
             $table->unsignedBigInteger('public_badge_id')->nullable();
-            $table->foreign('public_badge_id')->references('id')->on('public_badges');
+            $table->foreign('public_badge_id')->references('id')->on('public_badges')->onDelete('SET NULL');
 
             $table->timestamps();
         });

@@ -1,9 +1,9 @@
 <?php
 
-use App\Http\Controllers\API\ContactUsController;
-use App\Http\Controllers\API\PostController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\ContactUsController;
+use App\Http\Controllers\API\EvaluationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::post('/send-message', [ContactUsController::class, 'sendMessage']);
+Route::get('/get-questions/{form_id}/{member_id}', [EvaluationController::class, 'getQuestions']);

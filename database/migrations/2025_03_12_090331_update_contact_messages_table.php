@@ -17,7 +17,7 @@ class UpdateContactMessagesTable extends Migration
             $table->date('birthdate')->nullable();
             $table->string('school')->nullable();
             $table->unsignedBigInteger('grade_id')->nullable();
-            $table->foreign('grade_id')->references('id')->on('grades');
+            $table->foreign('grade_id')->references('id')->on('grades')->onDelete('SET NULL');
         });
     }
 

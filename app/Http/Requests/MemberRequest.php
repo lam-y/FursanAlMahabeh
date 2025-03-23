@@ -28,6 +28,15 @@ class MemberRequest extends FormRequest
         return [
             'name' => 'required|max:255',
             'member_phone' => 'required',
+            'father_name' => 'required',
+            'mother_name' => 'required',
+            'birth_date' => 'required',
+            'mother_phone' => 'required',
+            'father_phone' => 'required',
+            'address' => 'required',
+            'school' => 'required',
+            'register_date' => 'required',
+            'grade_id' => 'required',
             'photo' => [
                 'nullable',
                 function ($attribute, $value, $fail) {

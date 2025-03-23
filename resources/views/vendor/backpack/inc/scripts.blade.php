@@ -71,8 +71,7 @@
 
 <script>
     $(document).ready(function() {
-        if (window.location.pathname.includes('/admin/member/create') ||
-            window.location.pathname.includes('/admin/member/edit')) {
+        if (window.location.pathname.includes('/admin/member')) {
             // تنفيذ الوظيفة عند تغيير member_type_id
             $('[name="member_type_id"]').on('change select2:select', toggleFieldsBasedOnMemberType);
 
@@ -83,6 +82,24 @@
             toggleFieldsBasedOnMemberType();
             toggleFieldsBasedOnGrade();
         }
+
+        //===============
+        if (window.location.pathname.includes('/admin/evaluation')) {
+            // تحميل الأسئلة عند تغيير نوع التقييم
+            $('[name="form_id"]').on('change', loadQuestionsIfReady);
+
+            // تحميل الأسئلة عند تحميل الصفحة إذا كانت القيم موجودة
+            loadQuestionsIfReady();
+
+            function loadQuestionsIfReady() {
+                var formId = $('[name="form_id"]').val();
+                var memberId = $('[name="member_id"]').val();
+                if (formId && memberId) {
+                    loadQuestions(formId, memberId);
+                }
+            }
+        }
+
     });
 
     // ----------------------------------------------------------------
@@ -208,6 +225,31 @@
                 'visibility': 'visible',
                 'position': 'relative'
             });
+        });
+    }
+
+    //------------------------------------------------------------------
+    function loadQuestions(formId, memberId) {
+        $.ajax({
+            url: '/api/get-questions/'+ formId + '/' + memberId,
+            type: 'GET',
+            success: function(response) {
+                var questionsHtml = '';
+
+                response.questions.forEach(function(question) {
+                    var answerText = question.answer || '';
+                    questionsHtml += `
+                        <div class="form-group">
+                            <label>${question.text}</label>
+                            <textarea name="answers[${question.id}]" class="form-control">${answerText}</textarea>
+                        </div>`;
+                });
+
+                $('#questions-container').html(questionsHtml);
+            },
+            error: function(xhr, status, error) {
+                console.error('Error loading questions: ' + error);
+            }
         });
     }
 </script>

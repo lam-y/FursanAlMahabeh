@@ -23,4 +23,7 @@ Route::group([
 
     Route::get('export-members', [MemberController::class, 'export'])->name('export.members');
     Route::get('upgrade-members', [MemberController::class, 'upgradeMembers'])->name('upgrade-members');
+    Route::crud('evaluation', 'EvaluationCrudController');
+    Route::crud('form', 'FormCrudController');
+    Route::crud('question', 'QuestionCrudController');
 }); // this should be the absolute last line of this file

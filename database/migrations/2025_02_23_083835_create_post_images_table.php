@@ -17,7 +17,7 @@ class CreatePostImagesTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('post_id')->nullable();
-            $table->foreign('post_id')->references('id')->on('posts');
+            $table->foreign('post_id')->references('id')->on('posts')->onDelete('CASCADE');
 
             $table->string('img');
             $table->timestamps();

@@ -55,6 +55,11 @@ class Member extends Model
         return $this->belongsToMany(BranchBadge::class, 'members_branch_badges', 'member_id', 'branch_badges_id');
     }
 
+    public function evaluation()
+    {
+        return $this->hasMany(Evaluation::class);
+    }
+
     //------------------------------------------------------------
     public function getFoulardTextAttribute()
     {

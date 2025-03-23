@@ -17,10 +17,10 @@ class CreateMembersHobbyBadgesTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('member_id')->nullable();
-            $table->foreign('member_id')->references('id')->on('members');
+            $table->foreign('member_id')->references('id')->on('members')->onDelete('CASCADE');
 
             $table->unsignedBigInteger('hobby_badge_id')->nullable();
-            $table->foreign('hobby_badge_id')->references('id')->on('hobby_badges');
+            $table->foreign('hobby_badge_id')->references('id')->on('hobby_badges')->onDelete('SET NULL');
 
             $table->timestamps();
         });
